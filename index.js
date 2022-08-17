@@ -5,11 +5,38 @@ const WIDTH = 10;
 const HEIGHT = 20;
 const SIZE = 20;
 
+let pause = false;
+
+// TODO
+// play/pause + reset
+// rotation
+// floor
+
+document.addEventListener("keydown", ({ key }) => {
+  if (key === "ArrowLeft") {
+    piece.moveLeft();
+  }
+  if (key === "ArrowRight") {
+    piece.moveRight();
+  }
+  if (key === "ArrowDown") {
+    piece.moveDown();
+  }
+});
+
+document.addEventListener("click", ({ target }) => {
+  if (target.id === "play") {
+    pause = !pause;
+  }
+  if (target.id === "reset") {
+  }
+});
+
 function createPiece() {
   let posX = 3;
   let posY = 0;
   let startTime = Date.now();
-  let speed = 500;
+  let speed = 1000;
 
   const shape = [
     [0, 1, 0],
@@ -39,7 +66,17 @@ function createPiece() {
       startTime = now;
     }
   };
-  return { render, update };
+
+  const moveLeft = () => {
+    posX > 0 ? (posX -= 1) : posX;
+  };
+  const moveRight = () => {
+    posX < WIDTH - shape.length - 1 ? (posX += 1) : posX;
+  };
+  const moveDown = () => {
+    posY += 1;
+  };
+  return { render, update, moveLeft, moveRight, moveDown };
 }
 
 function renderGrid() {
@@ -69,6 +106,8 @@ function tick(delay) {
   piece.render();
   piece.update(delay);
 
-  requestAnimationFrame(tick);
+  if (!pause) {
+    requestAnimationFrame(tick);
+  }
 }
 requestAnimationFrame(tick);
