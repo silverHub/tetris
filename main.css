@@ -1,0 +1,17 @@
+#elements {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin: auto;
+  width: 250px;
+  height: 450px;
+}
+#controls{
+  display: flex;
+  align-items: center;
+  height: 120px
+}
+#game{
+  
+}
