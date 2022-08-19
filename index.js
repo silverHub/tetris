@@ -3,6 +3,8 @@ import createPiece from "./piece.js";
 import createTable from "./table.js";
 
 // TODO
+// canvas
+// controls
 // play/pause + reset
 // rotation
 // floor
