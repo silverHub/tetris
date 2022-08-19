@@ -1,5 +1,5 @@
 
-import {WIDTH, HEIGHT, SIZE} from './config.js';
+import { WIDTH, HEIGHT, SIZE } from './config.js';
 
 function createPiece(ctx) {
     let posX = 3;
@@ -7,7 +7,7 @@ function createPiece(ctx) {
     let startTime = Date.now();
     let speed = 1000;
 
-    const shape = [
+    let shape = [
         [0, 1, 0],
         [1, 1, 1],
     ];
@@ -44,7 +44,22 @@ function createPiece(ctx) {
     const moveDown = () => {
         posY += 1;
     };
-    return { render, update, moveLeft, moveRight, moveDown };
+    const rotate = () => {
+
+        const newShape = new Array(shape[0].length).fill(null);
+        for (let i = 0; i < newShape.length; i++) {
+            newShape[i] = new Array(shape.length).fill(null);
+        }
+
+        for (let x = 0; x < shape.length; x++) {
+            for (let y = 0; y < shape[x].length; y++) {
+                newShape[y][shape.length - 1 - x] = shape[x][y];
+            }
+        }
+        shape = newShape;
+    };
+
+    return { render, update, moveLeft, moveRight, moveDown, rotate };
 }
 
 export default createPiece;

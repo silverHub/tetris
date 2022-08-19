@@ -21,6 +21,9 @@ document.addEventListener("keydown", ({ key }) => {
   if (key === "ArrowDown") {
     piece.moveDown();
   }
+  if (key === "ArrowUp") {
+    piece.rotate();
+  }
 });
 
 document.addEventListener("click", (event) => {
