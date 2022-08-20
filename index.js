@@ -3,6 +3,8 @@ import createPiece from "./piece.js";
 import createTable from "./table.js";
 
 // TODO
+// canvas
+// controls
 // play/pause + reset
 // rotation
 // floor
@@ -25,6 +27,10 @@ document.addEventListener("keydown", ({ key }) => {
   if (key === "ArrowDown") {
     piece.moveDown();
   }
+  if (key === "ArrowUp") {
+    piece.rotate();
+  }
+});
 
 document.addEventListener("click", (event) => {
 

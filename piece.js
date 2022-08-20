@@ -54,7 +54,22 @@ function createPiece(ctx) {
         startTime = Date.now();
     }
    
-    return { render, update, moveLeft, moveRight, moveDown, reset };
+    const rotate = () => {
+
+        const newShape = new Array(shape[0].length).fill(null);
+        for (let i = 0; i < newShape.length; i++) {
+            newShape[i] = new Array(shape.length).fill(null);
+        }
+
+        for (let x = 0; x < shape.length; x++) {
+            for (let y = 0; y < shape[x].length; y++) {
+                newShape[y][shape.length - 1 - x] = shape[x][y];
+            }
+        }
+        shape = newShape;
+    };
+
+    return { render, update, moveLeft, moveRight, moveDown, reset, rotate };
 }
 
 export default createPiece;
