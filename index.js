@@ -6,6 +6,12 @@ import createTable from "./table.js";
 // play/pause + reset
 // rotation
 // floor
+// pieces
+// delete-line
+// endgame
+// score
+// mobile support
+// test
 
 let pause = false;
 
@@ -19,7 +25,6 @@ document.addEventListener("keydown", ({ key }) => {
   if (key === "ArrowDown") {
     piece.moveDown();
   }
-});
 
 document.addEventListener("click", (event) => {
 
@@ -40,7 +45,7 @@ document.addEventListener("click", (event) => {
   }
 
   if (target.id === "reset") {
-    // reset game
+    piece.reset()
   }
 });
 

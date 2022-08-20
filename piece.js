@@ -44,7 +44,17 @@ function createPiece(ctx) {
     const moveDown = () => {
         posY += 1;
     };
-    return { render, update, moveLeft, moveRight, moveDown };
+    const reset = () => {
+        posX = 3;
+        posY = 0;
+        shape = [
+            [0, 1, 0],
+            [1, 1, 1],
+        ];
+        startTime = Date.now();
+    }
+   
+    return { render, update, moveLeft, moveRight, moveDown, reset };
 }
 
 export default createPiece;
