@@ -20,11 +20,22 @@
       </p>
     <![endif]-->
     <div id="elements">
-      <div id="controls">
-        <button id="playpause">Pause</button>
-        <button id="reset">Reset</button>
-      </div>
+      <div>
+      <div id="pause-overlay"><span>PAUSE</span></div>
       <canvas id="game" width="200" height="400"></canvas>
+    </div>
+    </div>
+    <div id="controls">
+      <button id="reset">Reset</button>
+    </div>
+    <div id="help">
+      <ul>
+        <li>Move right: ⇨</li>
+        <li>Move left: ⇦</li>
+        <li>Move down: ⇩</li>
+        <li>Rotate right: ⇧</li>
+        <li>Pause: Space</li>
+      </ul>
     </div>
     <script src="index.js" type="module"></script>
   </body>
